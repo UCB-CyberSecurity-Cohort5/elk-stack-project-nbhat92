@@ -57,11 +57,11 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| 397 RedTeamNet  | No| 71.198.199.229:80 |
-| 398  RedTeamNet |  No  | 10.0.0.4:22  |
-| 399 JumpBox| No  | 71.198.199.229:80  |
-| 299 ELK-Net | No | 71.198.199.229:5601|
-| 300 ELK-Net | Yes | Any IP
+| Jumpbox  | Yes | 71.198.199.229:80 |
+|Web-1 |  No  | 10.0.0.4:22  |
+| Web-2| No  | 10.0.0.4:22  |
+| Web-3 | No | 10.0.0.4:22|
+| 300 ELKServer | Yes | 71.198.199.229.80 / 10.0.0.4:22
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows for precise representation of code, specifically Infrastructure as Code (IAC). This ensures smooth provisioning and management of the server.

@@ -4,9 +4,9 @@ The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/AzureNetworkDiagram_NeyhaBhat.jpg)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook and config YAML files may be used to install only certain pieces of it, such as Filebeat.
 
-  Please refer to my Ansible folder to see the playbook YAML files.
+  Please refer to my Ansible folder to see the playbook and config YAML files.
 
 This document contains the following details:
 - Description of the Topology
@@ -39,7 +39,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Jump Box | Gateway  | 10.0.0.1 | Linux |
 | Web-1   | DVWA Container Server | 10.0.0.7 | Linux |
 | Web-2    | DVWA Container Server | 10.0.0.8 | Linux |
-| Web-3   | DVWA Container Server | 10.0.0.10 | Linux              |
+| Web-3   | DVWA Container Server | 10.0.0.10 | Linux |
+|ELKServer | Monitoring | 10.1.0.4 | Linux
 
 ### Access Policies
 
@@ -93,8 +94,8 @@ Metricbeat is used to collect metric data from your target servers, such as oper
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the configuration file to Jump-Box Provisioner's /etc/ansible/files.
-- Update the host file to include IP addresses of the target machines within the correct host group.
+- Copy the filebeat and metricbeat config files to Jump-Box Provisioner's /etc/ansible/files.
+- Update the host files to include IP addresses of the target machines ELK server, metricbeat and filebeat should be installed.
 - Run the playbook, and navigate to ELK Server Kibana GUI data installation page to check that the installation worked as expected.
 
 

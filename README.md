@@ -27,7 +27,7 @@ Load balancers protect the availability aspect of security. Jump Boxes are used 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
-Filebeat is lightweight shipper used to forward and cetnralize log data. Once installed on your server, Filebeat monitors log files and locations, collects log events and then forwards them on to Elasticsearch.
+Filebeat is lightweight shipper used to forward and cetralize log data. Once installed on your server, Filebeat monitors log files and locations, collects log events and then forwards them on to Elasticsearch.
 
 Metricbeat also collects logs, but specifically metrics of the logs and then forwards that along to Elasticsearch.
 

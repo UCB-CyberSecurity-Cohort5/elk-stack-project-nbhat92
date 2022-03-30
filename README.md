@@ -23,7 +23,7 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, performant, in addition to restricting traffic to the network.
 
-Load balancers protect the availability aspect of security. Jump Boxes are used to control access to devices in a separate environment. Becuase Jump Boxes are hardened and can be monitored, access between the zones is more controlled / secure. 
+Load balancers protect the availability aspect of security. Jump Boxes are used to control access to devices in a separate environment. Because Jump Boxes are hardened and can be monitored, access between the zones is more controlled / secure. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 

@@ -4,9 +4,9 @@ The files in this repository were used to configure the network depicted below.
 
 ![TODO: Update the path with the name of your diagram](Images/AzureNetworkDiagram_NeyhaBhat.jpg)
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the YAML files may be used to install only certain pieces of it, such as Filebeat.
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the playbook and config YAML files may be used to install only certain pieces of it, such as Filebeat.
 
-  Please refer to my Ansible folder to see the playbook YAML files.
+  Please refer to my Ansible folder to see the playbook and config YAML files.
 
 This document contains the following details:
 - Description of the Topology
@@ -23,11 +23,11 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, performant, in addition to restricting traffic to the network.
 
-Load balancers protect the availability aspect of security. Jump Boxes are used to control access to devices in a separate environment. Becuase Jump Boxes are hardened and can be monitored, access between the zones is more controlled / secure. 
+Load balancers protect the availability aspect of security. Jump Boxes are used to control access to devices in a separate environment. Because Jump Boxes are hardened and can be monitored, access between the zones is more controlled / secure. 
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
-Filebeat is lightweight shipper used to forward and cetnralize log data. Once installed on your server, Filebeat monitors log files and locations, collects log events and then forwards them on to Elasticsearch.
+Filebeat is lightweight shipper used to forward and cetralize log data. Once installed on your server, Filebeat monitors log files and locations, collects log events and then forwards them on to Elasticsearch.
 
 Metricbeat also collects logs, but specifically metrics of the logs and then forwards that along to Elasticsearch.
 
@@ -39,7 +39,8 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Jump Box | Gateway  | 10.0.0.1 | Linux |
 | Web-1   | DVWA Container Server | 10.0.0.7 | Linux |
 | Web-2    | DVWA Container Server | 10.0.0.8 | Linux |
-| Web-3   | DVWA Container Server | 10.0.0.10 | Linux              |
+| Web-3   | DVWA Container Server | 10.0.0.10 | Linux |
+|ELKServer | Monitoring | 10.1.0.4 | Linux
 
 ### Access Policies
 
@@ -57,11 +58,11 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| 397 RedTeamNet  | No| 71.198.199.229:80 |
-| 398  RedTeamNet |  No  | 10.0.0.4:22  |
-| 399 JumpBox| No  | 71.198.199.229:80  |
-| 299 ELK-Net | No | 71.198.199.229:5601|
-| 300 ELK-Net | Yes | Any IP
+| Jumpbox  | Yes | 71.198.199.229:80 |
+|Web-1 |  No  | 10.0.0.4:22  |
+| Web-2| No  | 10.0.0.4:22  |
+| Web-3 | No | 10.0.0.4:22|
+| 300 ELKServer | Yes | 71.198.199.229.80 / 10.0.0.4:22
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it allows for precise representation of code, specifically Infrastructure as Code (IAC). This ensures smooth provisioning and management of the server.
@@ -93,8 +94,8 @@ Metricbeat is used to collect metric data from your target servers, such as oper
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the configuration file to Jump-Box Provisioner's /etc/ansible/files.
-- Update the host file to include IP addresses of the target machines within the correct host group.
+- Copy the filebeat and metricbeat config files to Jump-Box Provisioner's /etc/ansible/files.
+- Update the host files to include IP addresses of the target machines ELK server, metricbeat and filebeat should be installed.
 - Run the playbook, and navigate to ELK Server Kibana GUI data installation page to check that the installation worked as expected.
 
 
